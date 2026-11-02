@@ -162,6 +162,8 @@ jobs:
       - name: Dibujar
         env:
           LIMITE: ${{ github.event.inputs.limite }}
+          # Si la tienda corta las fotos a esta máquina, se piden por la nube del sistema (motor/servidor.js).
+          PROXY_NUBE: https://mkt-sistemas.analytics-data-jg-2025.workers.dev/proxy
         run: |
           # Solo dígitos: lo que se escribe en el formulario nunca entra crudo en la línea de comandos.
           LIM=$(printf '%s' "$LIMITE" | tr -cd '0-9')
