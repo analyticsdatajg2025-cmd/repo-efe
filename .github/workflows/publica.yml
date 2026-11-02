@@ -166,8 +166,9 @@ jobs:
           PROXY_NUBE: https://mkt-sistemas.analytics-data-jg-2025.workers.dev/proxy
         run: |
           # Solo dígitos: lo que se escribe en el formulario nunca entra crudo en la línea de comandos.
+          # --plazo 38: la parte deja de dibujar a los 38 min y entrega lo hecho (el job muere a los 45).
           LIM=$(printf '%s' "$LIMITE" | tr -cd '0-9')
-          node motor/publica.js "${{ matrix.tarea.slug }}" --parte ${{ matrix.tarea.parte }} --de ${{ matrix.tarea.de }} ${LIM:+--limite $LIM}
+          node motor/publica.js "${{ matrix.tarea.slug }}" --parte ${{ matrix.tarea.parte }} --de ${{ matrix.tarea.de }} --plazo 38 ${LIM:+--limite $LIM}
       - name: Guardar lo dibujado para el paso de unir
         # OJO con README.md: upload-artifact recorta la carpeta común de lo que sube. Sin un archivo
         # de la raíz, docs/<tienda>/<nombre>/ se pierde y al bajarlo las partes caen fuera de docs/.
