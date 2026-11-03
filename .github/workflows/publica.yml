@@ -211,21 +211,40 @@ jobs:
             node motor/publica.js "$slug" --unir --de "$de"
           done < lista.txt
           rm -f lista.txt
-      - name: Un solo commit, un solo push
+      - name: Subir en tandas (fotos primero, el CSV al final)
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
           git add -A docs
           git diff --cached --quiet && { echo "Nada cambió"; exit 0; }
-          git commit -m "Feeds a Pages: $(TZ=America/Lima date '+%Y-%m-%d %H:%M') (Lima)"
+          git reset -q
           # Empujar 15 mil fotos tarda un minuto, y en ese minuto la Fabrica puede haber empujado
           # una receta: GitHub rechaza con «cannot lock ref ... is at X but expected Y» y se perdia
           # la corrida entera. Se reintenta: traer, reponer nuestro commit encima y volver a empujar.
-          for intento in 1 2 3 4 5; do
-            if git push origin "HEAD:${GITHUB_REF_NAME}"; then exit 0; fi
-            echo "Push rechazado (intento $intento); me reengancho a lo que hay en GitHub"
-            sleep $((intento * 10))
-            git fetch origin "${GITHUB_REF_NAME}"
-            git rebase "origin/${GITHUB_REF_NAME}" || { git rebase --abort || true; git reset --hard "origin/${GITHUB_REF_NAME}"; exit 1; }
+          empujar() {
+            for intento in 1 2 3 4 5; do
+              if git push origin "HEAD:${GITHUB_REF_NAME}"; then return 0; fi
+              echo "Push rechazado (intento $intento); me reengancho a lo que hay en GitHub"
+              sleep $((intento * 10))
+              git fetch origin "${GITHUB_REF_NAME}"
+              git rebase "origin/${GITHUB_REF_NAME}" || { git rebase --abort || true; git reset --hard "origin/${GITHUB_REF_NAME}"; return 1; }
+            done
+            echo "No se pudo empujar despues de 5 intentos"; return 1
+          }
+          # Un catálogo grande con todo nuevo pesa varios GB y GitHub corta ese push (HTTP 500).
+          # Las fotos nuevas suben en tandas de 6 mil; el CSV, el historial y las borradas van al
+          # final, así el feed nunca apunta a una foto que todavía no está en GitHub.
+          git ls-files -o --exclude-standard -- 'docs/*/*/img/*' > "$RUNNER_TEMP/nuevas.txt"
+          split -l 6000 "$RUNNER_TEMP/nuevas.txt" "$RUNNER_TEMP/tanda_" || true
+          n=0
+          for t in "$RUNNER_TEMP"/tanda_*; do
+            [ -s "$t" ] || continue
+            n=$((n + 1))
+            xargs -a "$t" -d '\n' git add --
+            git commit -q -m "Feeds a Pages: fotos, tanda $n"
+            empujar || exit 1
           done
-          echo "No se pudo empujar despues de 5 intentos"; exit 1
+          git add -A docs
+          git diff --cached --quiet && exit 0
+          git commit -m "Feeds a Pages: $(TZ=America/Lima date '+%Y-%m-%d %H:%M') (Lima)"
+          empujar || exit 1
