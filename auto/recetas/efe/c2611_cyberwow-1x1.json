@@ -411,5 +411,6 @@
   "23:00"
  ],
  "partes": 20,
- "guardada": "2026-11-02T21:54:03.883Z"
+ "guardada": "2026-11-02T21:54:03.883Z",
+ "permitir_caida": true
 }
