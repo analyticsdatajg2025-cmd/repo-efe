@@ -1,5 +1,15 @@
 [
  {
+  "cuando": "2026-11-12T02:04:41.492Z",
+  "productos": 17672,
+  "nuevas": 0,
+  "reusadas": 0,
+  "retiradas": 0,
+  "paso": "Respaldo sin marco",
+  "respaldo": true,
+  "motivo": "la corrida no terminó"
+ },
+ {
   "cuando": "2026-11-11T18:28:20.806Z",
   "productos": 17711,
   "nuevas": 115,
