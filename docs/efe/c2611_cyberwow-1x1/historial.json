@@ -1,11 +1,11 @@
 [
  {
-  "cuando": "2026-11-17T23:05:10.699Z",
+  "cuando": "2026-11-17T23:10:14.053Z",
   "productos": 17366,
-  "nuevas": 78,
+  "nuevas": 92,
   "reusadas": 17264,
   "retiradas": 18398,
-  "borradas": 2,
+  "borradas": 10,
   "paso": "Unir",
   "leidos": 17489,
   "fuera": {
@@ -16,7 +16,7 @@
    "pendientes": 0
   },
   "atrasadas": 0,
-  "originales": 24
+  "originales": 10
  },
  {
   "cuando": "2026-11-17T18:05:59.487Z",
