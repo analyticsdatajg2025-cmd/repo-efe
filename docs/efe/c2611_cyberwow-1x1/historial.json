@@ -1,11 +1,11 @@
 [
  {
-  "cuando": "2026-11-17T23:14:52.970Z",
+  "cuando": "2026-11-17T23:18:42.880Z",
   "productos": 17366,
-  "nuevas": 19,
-  "reusadas": 17342,
-  "retiradas": 18396,
-  "borradas": 8,
+  "nuevas": 10,
+  "reusadas": 17356,
+  "retiradas": 18388,
+  "borradas": 0,
   "paso": "Unir",
   "leidos": 17489,
   "fuera": {
@@ -16,15 +16,15 @@
    "pendientes": 0
   },
   "atrasadas": 0,
-  "originales": 5
+  "originales": 0
  },
  {
-  "cuando": "2026-11-17T23:05:10.699Z",
+  "cuando": "2026-11-17T23:10:14.053Z",
   "productos": 17366,
-  "nuevas": 78,
+  "nuevas": 92,
   "reusadas": 17264,
   "retiradas": 18398,
-  "borradas": 2,
+  "borradas": 10,
   "paso": "Unir",
   "leidos": 17489,
   "fuera": {
@@ -35,7 +35,7 @@
    "pendientes": 0
   },
   "atrasadas": 0,
-  "originales": 24
+  "originales": 10
  },
  {
   "cuando": "2026-11-17T18:05:59.487Z",
