@@ -1,5 +1,24 @@
 [
  {
+  "cuando": "2026-11-21T18:03:25.461Z",
+  "productos": 17397,
+  "nuevas": 3,
+  "reusadas": 17394,
+  "retiradas": 393,
+  "borradas": 0,
+  "paso": "Unir",
+  "leidos": 17515,
+  "fuera": {
+   "sin foto": 87,
+   "sin precio": 31,
+   "sin link": 0,
+   "repetidos": 0,
+   "pendientes": 0
+  },
+  "atrasadas": 0,
+  "originales": 0
+ },
+ {
   "cuando": "2026-11-21T07:04:42.206Z",
   "productos": 17408,
   "nuevas": 28,
@@ -945,15 +964,6 @@
   "reusadas": 79437,
   "retiradas": 4199,
   "borradas": 351,
-  "paso": "Unir"
- },
- {
-  "cuando": "2026-11-07T22:38:20.447Z",
-  "productos": 79437,
-  "nuevas": 215,
-  "reusadas": 79222,
-  "retiradas": 4199,
-  "borradas": 0,
   "paso": "Unir"
  }
 ]
