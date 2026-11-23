@@ -1,6 +1,8 @@
 {
- "pedido": "2026-11-23T07:39:09.976Z",
+ "pedido": "2026-11-23T18:00:48.022Z",
  "slugs": [
-  "efe/c2611_cyberwow-1x1"
- ]
+  "efe/c2611_cyberwow-1x1",
+  "efe/catalogo"
+ ],
+ "auto": true
 }
