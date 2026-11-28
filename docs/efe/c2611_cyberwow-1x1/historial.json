@@ -1,5 +1,24 @@
 [
  {
+  "cuando": "2026-11-28T18:03:58.390Z",
+  "productos": 17634,
+  "nuevas": 10,
+  "reusadas": 17622,
+  "retiradas": 393,
+  "borradas": 108,
+  "paso": "Unir",
+  "leidos": 17750,
+  "fuera": {
+   "sin foto": 87,
+   "sin precio": 29,
+   "sin link": 0,
+   "repetidos": 0,
+   "pendientes": 0
+  },
+  "atrasadas": 0,
+  "originales": 2
+ },
+ {
   "cuando": "2026-11-28T07:04:27.317Z",
   "productos": 17622,
   "nuevas": 11,
@@ -1119,24 +1138,5 @@
   },
   "atrasadas": 0,
   "originales": 2
- },
- {
-  "cuando": "2026-11-16T23:05:00.335Z",
-  "productos": 17365,
-  "nuevas": 19,
-  "reusadas": 17334,
-  "retiradas": 18296,
-  "borradas": 5,
-  "paso": "Unir",
-  "leidos": 17491,
-  "fuera": {
-   "sin foto": 86,
-   "sin precio": 40,
-   "sin link": 0,
-   "repetidos": 0,
-   "pendientes": 0
-  },
-  "atrasadas": 0,
-  "originales": 12
  }
 ]
